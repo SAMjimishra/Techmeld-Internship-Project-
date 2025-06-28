@@ -1,0 +1,93 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>SAM Currency Converter</title>
+    <style>
+        body {
+            background-color: #f1f5f9;
+            font-family: 'Segoe UI', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        
+        .card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            width: 350px;
+            text-align: center;
+        }
+        
+        h2 {
+            margin-bottom: 20px;
+            color: #0f172a;
+        }
+        
+        select,
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+        
+        button {
+            background-color: #00b386;
+            color: white;
+            padding: 12px 24px;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+        
+        .result {
+            margin-top: 20px;
+            font-weight: bold;
+            color: #0f766e;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card">
+        <h2>💱 Currency Converter</h2>
+        <form method="GET" action="/convert">
+            <input type="number" step="any" name="amount" placeholder="Enter amount" required>
+
+            <select name="from_currency">
+        <option value="USD">USD</option>
+        <option value="INR">INR</option>
+        <option value="EUR">EUR</option>
+        <option value="GBP">GBP</option>
+        <option value="JPY">JPY</option>
+      </select>
+
+            <select name="to_currency">
+        <option value="INR">INR</option>
+        <option value="USD">USD</option>
+        <option value="EUR">EUR</option>
+        <option value="GBP">GBP</option>
+        <option value="JPY">JPY</option>
+      </select>
+
+            <button type="submit">Convert</button>
+        </form>
+
+        {% if result %}
+        <div class="result">{{ result }}</div>
+        {% endif %}
+    </div>
+</body>
+
+</html>

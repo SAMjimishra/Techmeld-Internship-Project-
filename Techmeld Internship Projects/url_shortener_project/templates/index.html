@@ -1,0 +1,91 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>🔗 URL Shortener</title>
+    <style>
+        body {
+            background-color: #121212;
+            color: #e0e0e0;
+            font-family: 'Segoe UI', sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+        
+        h1 {
+            color: #00ffc8;
+        }
+        
+        input[type="text"] {
+            width: 60%;
+            max-width: 500px;
+            padding: 12px;
+            font-size: 16px;
+            background-color: #1e1e1e;
+            border: 2px solid #00ffc8;
+            color: #fff;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+        
+        input[type="submit"] {
+            padding: 12px 24px;
+            font-size: 16px;
+            background-color: #00ffc8;
+            color: #121212;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        
+        input[type="submit"]:hover {
+            background-color: #00ddb0;
+        }
+        
+        .result,
+        .error {
+            margin-top: 25px;
+            font-size: 18px;
+        }
+        
+        .result {
+            color: #32ff7e;
+        }
+        
+        .error {
+            color: #ff4e50;
+        }
+        
+        a {
+            color: #00aaff;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>🌙 Python URL Shortener</h1> <br>
+    <p> Convert your Long URL to Short in Just on Click</p>
+    <form method="POST">
+        <input type="text" name="long_url" placeholder="Paste long URL here..." required><br>
+        <input type="submit" value="Shorten URL">
+    </form>
+
+    {% if short_url %}
+    <div class="result">
+        ✅ Short URL: <a href="{{ short_url }}" target="_blank">{{ short_url }}</a><br> 📋 Copied to clipboard!
+    </div>
+    {% endif %} {% if error %}
+    <div class="error">
+        {{ error }}
+    </div>
+    {% endif %}
+</body>
+
+</html>
